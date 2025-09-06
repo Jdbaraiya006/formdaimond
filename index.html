@@ -827,7 +827,7 @@
    <script>
 
      
-      function updateTotals() {
+   function updateTotals() {
         // Left Table Totals
         const qtyInputs = document.querySelectorAll(".qty");
         const rateInputs = document.querySelectorAll(".rate");
@@ -939,8 +939,6 @@ document.querySelectorAll("input").forEach(inp => {
 // Run once at start
 calculateAll();
 
-        
-
         // Right Table-1
         const qtyvInputs = document.querySelectorAll(".qtyv");
         const ratevInputs = document.querySelectorAll(".rateV");
@@ -1024,7 +1022,8 @@ document.getElementById('b3-grand').textContent = sum3.toFixed(2);
   document.querySelectorAll(".qtyS").forEach(function (input) {
     input.addEventListener("input", calculateGrandTotalS);
 
-//menejar
+
+    //menejar
 
     function calculateSalaries() {
   const salaryInputs = document.querySelectorAll('.salary');
@@ -1096,17 +1095,37 @@ document.getElementById("TotaL3").textContent = TotaL3.toFixed(2);
 const finalGrand = Total0 + TotaL1 + TotaL2 + TotaL3;
 document.getElementById("final-grand").textContent = finalGrand.toFixed(2);
   });
-    
 }
 
+
+function table_to_book(table, name) {
+  var workbook = XLSX.utils.book_new();
+  var worksheet = XLSX.utils.table_to_sheet(table);
+  XLSX.utils.book_append_sheet(workbook, worksheet, name);
+  return workbook;
+}
+
+function saveToFile() {
+  const tables = document.querySelectorAll("table");
+  const workbook = XLSX.utils.book_new();
+
+  tables.forEach((table, index) => {
+    const sheetName = `Sheet${index + 1}`;
+    const worksheet = XLSX.utils.table_to_sheet(table);
+    XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
+  });
+
+  XLSX.writeFile(workbook, "report.xlsx");
+}
       
       
-      // Auto update on input
-      document.addEventListener("input", updateTotals);
-    </script>
+// Auto update on input
+document.addEventListener("input", updateTotals);
+
   </body>
 
 </html>
+
 
 
 
