@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 Left Tables & 5 Right Tables</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    
+    <!-- Header Info -->
+    <!-- Top Header Inside Table -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+        background-color: #c8e6c9;
+      "
+    >
+      <tr>
+        <td
+          style="
+            border: 1px solid black;
+            padding: 6px;
+            font-weight: bold;
+            width: 60%;
+            text-align: left;
+          "
+        >
+          ખતેદારનું નામ:
+          <input
+            type="text"
+            id="khatedar"
+            style="
+              border: none;
+              border-bottom: 1px solid black;
+              width: 60%;
+              background-color: #c8e6c9;
+            "
+          />
+        </td>
+        <td
+          style="
+            border: 1px solid black;
+            padding: 6px;
+            font-weight: bold;
+            width: 40%;
+            text-align: left;
+          "
+        >
+          તારીખ =
+          <input
+            type="text"
+            id="date"
+            placeholder=""
+            style="
+              border: none;
+              border-bottom: 1px solid black;
+              width: 50%;
+              background-color: #c8e6c9;
+            "
+          />
+        </td>
+      </tr>
+    </table>
+
+    <div class="flex-row">
+      <!-- Table 1 -->
+      <!-- 1.LEFT COLUMN: 5 tables -->
+      <div class="column">
+        <table class >
+          <tr style="background-color: #c8e6c9; border: none;">
+            <th>નામ</th>
+            <th>નંગ</th>
+            <th>ભાવ</th>
+            <th>ટોટલ</th>
+          </tr>
+
+          <tr>
+            <td>તળીયા</td>
+            <td><input type="number" class="qty" /></td>
+            <td><input type="number" class="rate" /></td>
+            <td><span class="total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા પેલ</td>
+            <td><input type="number" class="qty" /></td>
+            <td><input type="number" class="rate" /></td>
+            <td><span class="total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા તરખૂણિયા</td>
+            <td><input type="number" class="qty" /></td>
+            <td><input type="number" class="rate" /></td>
+            <td><span class="total">0</span></td>
+          </tr>
+
+          <tr class="highlight">
+            <td>ટોટલ</td>
+            <td><span id="topQtyTotal">0</span></td>
+            <td><span id="topRateTotal">0</span></td>
+            <td><span id="topSectionTotal">0</span></td>
+          </tr>
+
+          <tr>
+            <td>તળીયા પેલ</td>
+            <td><input type="number" class="qty" /></td>
+            <td><input type="number" class="rate" /></td>
+            <td><span class="total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા પેલ</td>
+            <td><input type="number" class="qty" /></td>
+            <td><input type="number" class="rate" /></td>
+            <td><span class="total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા તરખૂણિયા</td>
+            <td><input type="number" class="qty" /></td>
+            <td><input type="number" class="rate" /></td>
+            <td><span class="total">0</span></td>
+          </tr>
+
+          <tr class="highlight">
+            <td>ટોટલ</td>
+            <td><span id="bottomQtyTotal">0</span></td>
+            <td><span id="bottomRateTotal">0</span></td>
+            <td><span id="bottomSectionTotal">0</span></td>
+          </tr>
+
+          <tr class="highlight"style="background-color: #ffe0b2">
+            <td colspan="3" class="right-align">કુલ ટોટલ:</td>
+            <td><span id="grandTotal">0</span></td>
+          </tr>
+        </table>
+        <!-- Table 2-->
+        <!-- 2 Table  એફિસે જમા કરાવેલ ટાટલ નંગ-->
+
+        <table class="half-table">
+          <tr>
+            <th
+              colspan="3"
+              style="white-space: nowrap; background-color: #c8e6c9"
+            >
+              એફિસે જમા કરાવેલ ટાટલ નંગ
+            </th>
+          </tr>
+
+          <tr>
+            <td colspan="2"><input type="text" placeholder="નામ" /></td>
+            <td><input type="number" class="qty3" /></td>
+          </tr>
+
+          <tr>
+            <td colspan="2"><input type="text" placeholder="નામ" /></td>
+            <td><input type="number" class="qty3" /></td>
+          </tr>
+
+          <tr class="highlight"style="background-color: #ffe0b2">
+            <td colspan="2" class="right-align">કુલ ટોટલ:</td>
+            <td><span id="grandTotal3">0</span></td>
+          </tr>
+        </table>
+        <!-- Table 3 -->
+
+        <!-- 3.બનાવવા અપાયેલા નંગ (મજૂરી દેવાની)-->
+
+        <table>
+          <tr style="background-color: #c8e6c9">
+            <th colspan="4">બનાવવા અપાયેલા નંગ (મજૂરી દેવાની)</th>
+          </tr>
+
+          <tr>
+            <th>વિગત</th>
+            <th>નંગ</th>
+            <th>ભાવ</th>
+            <th>ટોટલ ₹</th>
+          </tr>
+
+          <tr>
+            <td>ઘાટ</td>
+            <td><input type="number" class="b1-qty" /></td>
+            <td><input type="number" class="b1-rate" /></td>
+            <td><span class="b1-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>ટેબલ</td>
+            <td><input type="number" class="b1-qty" /></td>
+            <td><input type="number" class="b1-rate" /></td>
+            <td><span class="b1-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>વીટ</td>
+            <td><input type="number" class="b1-qty" /></td>
+            <td><input type="number" class="b1-rate" /></td>
+            <td><span class="b1-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>તળીયા</td>
+            <td><input type="number" class="b1-qty" /></td>
+            <td><input type="number" class="b1-rate" /></td>
+            <td><span class="b1-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા પેલ</td>
+            <td><input type="number" class="b1-qty" /></td>
+            <td><input type="number" class="b1-rate" /></td>
+            <td><span class="b1-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા તરખૂણિયા</td>
+            <td><input type="number" class="b1-qty" /></td>
+            <td><input type="number" class="b1-rate" /></td>
+            <td><span class="b1-total">0</span></td>
+          </tr>
+
+          <tr class="total-row" style="background-color: #ffe0b2">
+            <td colspan="3" style="text-align: right">ટોટલ:</td>
+            <td><span id="b1-grand">0</span></td>
+          </tr>
+        </table>
+        <!-- Table 4 -->
+        <!--4 બહાર ની આવક / બહાર ની જાવક / નુકશાની -->
+
+        <table style="clear: both; width: 92%">
+  <tr style="background-color: #c8e6c9">
+    <th colspan="2">બહાર ની આવક / બહાર ની જાવક / નુકશાની</th>
+  </tr>
+  <tr>
+    <td>બહાર ની આવક</td>
+    <td><span id="આવક">0</span></td>
+  </tr>
+  <tr>
+    <td>બહાર ની જાવક</td>
+    <td><span id="જાવક">0</span></td>
+  </tr>
+  <tr class="total-row">
+    <td>ફાયદો / નુકશાની</td>
+    <td><span id="b2-result">0</span></td>
+  </tr>
+</table>
+        
+
+        <!-- Table 5 -->
+        <!-- 5.ઘીરા પર નો ટોટલ ખર્ચ -->
+        <table class="half-table1" style="margin-top: 1px">
+          <tr style="background-color: #c8e6c9">
+            <th colspan="3">ઘીરા પર નો ટોટલ ખર્ચ</th>
+          </tr>
+          <tr>
+            <td>નંગ પર ચૂકવાતી મજૂરી</td>
+            <td><span id="Total0">0</span></td>
+          </tr>
+          <tr>
+            <td>નંગ ઉપર નો મેનજર ખર્ચ</td>
+            <td><span id="TotaL1">0</span></td>
+          </tr>
+          <tr>
+            <td>નંગ ઉપર નો પરચુરણ ખર્ચ</td>
+            <td><span id="TotaL2">0</span></td>
+          </tr>
+
+          <tr>
+            <td>ફાયદો / નુકશાની</td>
+            <td><span id="TotaL3">0</span></td>
+          </tr>
+
+          <tr style="background-color: #ffcdd2">
+            <td style="text-align: right">ટોટલ</td>
+            <td><span id="final-grand">0</span></td>
+          </tr>
+        </table>
+      </div>
+      <!-- Table R 1 -->
+      <!-- RIGHT COLUMN: 5 tables -->
+      <div class="column">
+        <table>
+          <tr>
+            <th>પરચુરણ ખર્ચ</th>
+            <th>નંગ</th>
+            <th>ભાવ</th>
+            <th>ટોટલ</th>
+            <th>ખર્ચ %</th>
+          </tr>
+
+          <!-- Repeat rows -->
+          <tr>
+            <td>મકાન ભાડું</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>લાઇટ બિલ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>ડાયુ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>કોટેડ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+          <tr>
+
+            <td>દોરી વ્હીલ નંગ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>વીટ વ્હીલ નંગ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>નવી સરેણનંગ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>સરેણ માંજવાના</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>પરચુરણ ખર્ચ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>નવ સામાન</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>રશીયન વ્હીલ નંગ</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>નવો સામાન</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr>
+            <td>અન્ય</td>
+            <td><input type="number" class="qtyv" /></td>
+            <td><input type="number" class="rateV" /></td>
+            <td><span class="total-2">0</span></td>
+            <td><span class="percent">0</span></td>
+          </tr>
+
+          <tr class="highlight"style="background-color: #ffe0b2">
+            <td colspan="3" class="right-align">કુલ ટોટલ:</td>
+            <td><span id="grandTotalR2">0</span></td>
+            <td><span id="percentTotal">0%</span></td>
+          </tr>
+        </table>
+        <!-- Table R-2-->
+        <!-- બનાવવા લાવેલા નંગ (મજૂરી લેવાની) -->
+
+        <table>
+          <tr style="background-color: #c8e6c9">
+            <th colspan="4">બનાવવા લાવેલા નંગ (મજૂરી લેવાની)</th>
+          </tr>
+
+          <tr>
+            <th>વિગત</th>
+            <th>નંગ</th>
+            <th>ભાવ</th>
+            <th>ટોટલ ₹</th>
+          </tr>
+
+          <tr>
+            <td>ઘાટ</td>
+            <td><input type="number" class="b2-qty" /></td>
+            <td><input type="number" class="b2-rate" /></td>
+            <td><span class="b2-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>ટેબલ</td>
+            <td><input type="number" class="b2-qty" /></td>
+            <td><input type="number" class="b2-rate" /></td>
+            <td><span class="b2-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>વીટ</td>
+            <td><input type="number" class="b2-qty" /></td>
+            <td><input type="number" class="b2-rate" /></td>
+            <td><span class="b2-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>તળીયા</td>
+            <td><input type="number" class="b2-qty" /></td>
+            <td><input type="number" class="b2-rate" /></td>
+            <td><span class="b2-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા પેલ</td>
+            <td><input type="number" class="b2-qty" /></td>
+            <td><input type="number" class="b2-rate" /></td>
+            <td><span class="b2-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા તરખૂણિયા</td>
+            <td><input type="number" class="b2-qty" /></td>
+            <td><input type="number" class="b2-rate" /></td>
+            <td><span class="b2-total">0</span></td>
+          </tr>
+
+          <tr class="total-row" style="background-color: #ffe0b2">
+            <td colspan="3" style="text-align: right">ટોટલ:</td>
+            <td><span id="b2-grand">0</span></td>
+          </tr>
+        </table>
+
+        <!-- Table R-3-->
+        
+          
+          <table>
+          <tr style="background-color: #c8e6c9">
+            <th colspan="4">રીપેરીંગ</th>
+          </tr>
+
+          <tr>
+            <th>નામ</th>
+            <th>નંગ</th>
+            <th>ભાવ</th>
+            <th>ટોટલ ₹</th>
+          </tr>
+          <tr>
+            <td>તળીયા</td>
+            <td><input type="number" class="b3-qty" /></td>
+            <td><input type="number" class="b3-rate" /></td>
+            <td><span class="b3-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા પેલ</td>
+            <td><input type="number" class="b3-qty" /></td>
+            <td><input type="number" class="b3-rate" /></td>
+            <td><span class="b3-total">0</span></td>
+          </tr>
+
+          <tr>
+            <td>મથાળા તરખૂણિયા</td>
+            <td><input type="number" class="b3-qty" /></td>
+            <td><input type="number" class="b3-rate" /></td>
+            <td><span class="b3-total">0</span></td>
+          </tr>
+
+          <tr style="background-color: #ffe0b2">
+            <td colspan="3" style="text-align: right">ટોટલ:</td>
+            <td><span id="b3-grand">0</span></td>
+          </tr>
+        </table>
+
+        <!-- Table R-4-->
+        <table class="half-table">
+          <tr>
+            <th
+              colspan="3"
+              style="white-space: nowrap; background-color: #c8e6c9"
+            >
+              ઉપાડ
+            </th>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="નામ" /></td>
+            <td><input type="number" class="qtyS" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" placeholder="નામ" /></td>
+            <td><input type="number" class="qtyS" /></td>
+          </tr>
+          <tr class="highlight">
+            <td colspan="2" class="right-align">કુલ ટોટલ:</td>
+            <td><span id="grandTotalS">0</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+    <br>
+
+
+    <div>
+        <table>
+          <tr style="background-color: #c8e6c9">
+            <th colspan="5">મેનજર ની વિગત</th>
+          </tr>
+          <tr>
+            <th>મેનજર</th>
+            <th>નામ</th>
+            <th>પગાર</th>
+            <th>દેવાનો પગાર</th>
+            <th>ખર્ચ %</th>
+          </tr>
+
+          <!-- Repeat rows -->
+          <tr>
+            <td>મેનજર</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>તળિયા મેનજર</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>તળિયા મેનજર-2</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>પેલ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>પેલ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>મથાળા</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>મથાળા</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>તરખૂણિયા</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>તરખૂણિયા</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>ટેબલ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>ટેબલ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>વીટ પટા</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>વીટ પટા</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>લોટીગ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>લોટીગ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>દોરી</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>દોરી</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+           <tr>
+            <td>દોરી</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>દોરી</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>ડાયુ બેસાડવા|</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>ડાયુ બેસાડવા|</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>લેવલ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td>લેવલ</td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+           <tr>
+            <td></td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="text"/></td>
+            <td><input type="number" class="salary" /></td>
+            <td><input type="number" class="givensalary" /></td>
+            <td><span class="salarypercent">0</span></td>
+          </tr>
+
+
+          <tr style="background-color: orange;">
+            <td colspan="2" style="text-align:right;font-weight:bold;">કુલ</td>
+            <td><span id="salary">0</span></td>
+            <td><span id="givensalary">0</span></td>
+            <td><span id="totalpercent">0%</span></td>
+           
+        </table>
+
+        <button type="button" onclick="saveToFile()">Save</button>
+<div id="save-file-container"></div>
+
+<label>Load Saved File to Edit:
+  <input type="file" accept=".json" onchange="loadFromFile(event)" />
+</label>
+  
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+      
+<script src="script.js"></script>
+  </body>
+</html>
