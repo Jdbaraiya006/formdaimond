@@ -939,78 +939,7 @@ document.querySelectorAll("input").forEach(inp => {
 // Run once at start
 calculateAll();
 
-        //menejar
-
-    function calculateSalaries() {
-  const salaryInputs = document.querySelectorAll('.salary');
-  const givenInputs = document.querySelectorAll('.givensalary');
-  const percentSpans = document.querySelectorAll('.salarypercent');
-
-  let totalSalary = 0;
-  let totalGiven = 0;
-
-  // read grandTotal3 from page
-  const grandTotal3 = parseFloat(document.getElementById("grandTotal3")?.textContent) || 0;
-
-  // Loop through each row
-  for (let i = 0; i < salaryInputs.length; i++) {
-    const salary = parseFloat(salaryInputs[i].value) || 0;
-    const given = parseFloat(givenInputs[i].value) || 0;
-
-    totalSalary += salary;
-    totalGiven += given;
-
-    // row wise percentage → given ÷ grandTotal3
-    const percent = grandTotal3 !== 0 ? (given / grandTotal3) : 0;
-    percentSpans[i].textContent = percent.toFixed(2) + "%";
-  }
-
-  // Show totals in last orange row
-  document.getElementById("salary").textContent = totalSalary.toFixed(2);
-  document.getElementById("givensalary").textContent = totalGiven.toFixed(2);
-
-  // Final percentage total → totalGiven ÷ grandTotal3
-  const totalPercent = grandTotal3 !== 0 ? (totalGiven / grandTotal3) : 0;
-  document.getElementById("totalpercent").textContent = totalPercent.toFixed(2) + "%";
-
-  // Show raw final % (without % sign) if needed
-  document.getElementById("grandTotal2").textContent = totalPercent.toFixed(2);
-}
-
-// run on input change
-document.addEventListener("input", calculateSalaries);
-
-
-// Optional: run once on page load
-window.addEventListener('DOMContentLoaded', calculateSalaries);
-  // Page load પર પણ total ગણાવવું હોય તો uncomment કરો
-
-  // calculateGrandTotalS();
-  
-   
-     // Final 4 Calculations
-const Total0 = grand3 !== 0 ? grand / grand3 : 0;
-document.getElementById("Total0").textContent = Total0.toFixed(2);
-
-// givensalary ÷ grand3 → TotaL1
-const givensalary = parseFloat(document.getElementById("givensalary").textContent) || 0;
-const TotaL1 = grand3 !== 0 ? givensalary / grand3 : 0;
-document.getElementById("TotaL1").textContent = TotaL1.toFixed(2);
-
-// grandTotal2 ÷ grand3 → TotaL2
-const grandTotalR2 = parseFloat(document.getElementById("grandTotalR2").textContent) || 0;
-const TotaL2 = grand3 !== 0 ? grandTotalR2 / grand3 : 0;
-document.getElementById("TotaL2").textContent = TotaL2.toFixed(2);
-
-// b2 ÷ grand3 → TotaL3
-const b2 = parseFloat(document.getElementById("b2-result").textContent) || 0;
-const TotaL3 = grand3 !== 0 ? b2 / grand3 : 0;
-document.getElementById("TotaL3").textContent = TotaL3.toFixed(2);
-
-// Final Grand Total (sum of all)
-const finalGrand = Total0 + TotaL1 + TotaL2 + TotaL3;
-document.getElementById("final-grand").textContent = finalGrand.toFixed(2);
-  });
+        
 
         // Right Table-1
         const qtyvInputs = document.querySelectorAll(".qtyv");
@@ -1095,7 +1024,78 @@ document.getElementById('b3-grand').textContent = sum3.toFixed(2);
   document.querySelectorAll(".qtyS").forEach(function (input) {
     input.addEventListener("input", calculateGrandTotalS);
 
+//menejar
 
+    function calculateSalaries() {
+  const salaryInputs = document.querySelectorAll('.salary');
+  const givenInputs = document.querySelectorAll('.givensalary');
+  const percentSpans = document.querySelectorAll('.salarypercent');
+
+  let totalSalary = 0;
+  let totalGiven = 0;
+
+  // read grandTotal3 from page
+  const grandTotal3 = parseFloat(document.getElementById("grandTotal3")?.textContent) || 0;
+
+  // Loop through each row
+  for (let i = 0; i < salaryInputs.length; i++) {
+    const salary = parseFloat(salaryInputs[i].value) || 0;
+    const given = parseFloat(givenInputs[i].value) || 0;
+
+    totalSalary += salary;
+    totalGiven += given;
+
+    // row wise percentage → given ÷ grandTotal3
+    const percent = grandTotal3 !== 0 ? (given / grandTotal3) : 0;
+    percentSpans[i].textContent = percent.toFixed(2) + "%";
+  }
+
+  // Show totals in last orange row
+  document.getElementById("salary").textContent = totalSalary.toFixed(2);
+  document.getElementById("givensalary").textContent = totalGiven.toFixed(2);
+
+  // Final percentage total → totalGiven ÷ grandTotal3
+  const totalPercent = grandTotal3 !== 0 ? (totalGiven / grandTotal3) : 0;
+  document.getElementById("totalpercent").textContent = totalPercent.toFixed(2) + "%";
+
+  // Show raw final % (without % sign) if needed
+  document.getElementById("grandTotal2").textContent = totalPercent.toFixed(2);
+}
+
+// run on input change
+document.addEventListener("input", calculateSalaries);
+
+
+// Optional: run once on page load
+window.addEventListener('DOMContentLoaded', calculateSalaries);
+  // Page load પર પણ total ગણાવવું હોય તો uncomment કરો
+
+  // calculateGrandTotalS();
+  
+   
+     // Final 4 Calculations
+const Total0 = grand3 !== 0 ? grand / grand3 : 0;
+document.getElementById("Total0").textContent = Total0.toFixed(2);
+
+// givensalary ÷ grand3 → TotaL1
+const givensalary = parseFloat(document.getElementById("givensalary").textContent) || 0;
+const TotaL1 = grand3 !== 0 ? givensalary / grand3 : 0;
+document.getElementById("TotaL1").textContent = TotaL1.toFixed(2);
+
+// grandTotal2 ÷ grand3 → TotaL2
+const grandTotalR2 = parseFloat(document.getElementById("grandTotalR2").textContent) || 0;
+const TotaL2 = grand3 !== 0 ? grandTotalR2 / grand3 : 0;
+document.getElementById("TotaL2").textContent = TotaL2.toFixed(2);
+
+// b2 ÷ grand3 → TotaL3
+const b2 = parseFloat(document.getElementById("b2-result").textContent) || 0;
+const TotaL3 = grand3 !== 0 ? b2 / grand3 : 0;
+document.getElementById("TotaL3").textContent = TotaL3.toFixed(2);
+
+// Final Grand Total (sum of all)
+const finalGrand = Total0 + TotaL1 + TotaL2 + TotaL3;
+document.getElementById("final-grand").textContent = finalGrand.toFixed(2);
+  });
     
 }
 
@@ -1107,5 +1107,6 @@ document.getElementById('b3-grand').textContent = sum3.toFixed(2);
   </body>
 
 </html>
+
 
 
